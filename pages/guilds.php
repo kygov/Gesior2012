@@ -642,6 +642,11 @@ if($action == 'acceptinvite')
 				{
 					$guild_errors[] = 'Character with name <b>'.htmlspecialchars($name).'</b> is already in guild. You must leave guild before you join other guild.';
 				}
+
+				if ($player->getAccount()->getId() != $account_logged->getId())
+				{
+					$guild_errors[] = 'Character <b>'.htmlspecialchars($name).'</b> isn\'t from your account!';
+				}
 			}
 		}
 	}
